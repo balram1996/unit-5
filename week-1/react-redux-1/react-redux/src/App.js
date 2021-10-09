@@ -1,5 +1,6 @@
 import {addCount} from  "./redux/actions";
-import {store} from "./redux/store.js"
+import {store} from "./redux/store.js";
+import {useSelector} from "react-redux";
 
 function App() {
   return (

@@ -17,7 +17,7 @@ export const reducerFn = (state, { type, payload }) => {
         case ADD_TODO:
             return{
                 ...state,
-                todos:[...state.todos,{...payload}]
+                todos:[...state.todos,{payload}]
             }
         default:
             return {...state};

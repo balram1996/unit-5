@@ -1,14 +1,14 @@
-import {addCount} from  "./redux/actions";
-import {store} from "./redux/store.js";
-import {useSelector} from "react-redux";
+import { Counter } from "./Components/Counter";
+import {Todo} from "./Components/Todo"
+
 
 function App() {
+
   return (
-    <div className="App">
-      <button onClick={()=>{
-        store.dispatch(addCount(1))
-      }}>Click Me</button>
-    </div>
+    <>
+    <Counter/>
+    <Todo/>
+    </>
   );
 }
 

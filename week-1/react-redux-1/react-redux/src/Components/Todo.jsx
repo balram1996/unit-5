@@ -1,8 +1,8 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch,shallowEqual } from "react-redux";
 import { addTodo } from "../redux/actions";
 
 export const Todo = () => {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos,shallowEqual);
   console.log(todos);
   const dispatch = useDispatch();
   return (

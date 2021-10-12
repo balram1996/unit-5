@@ -1,6 +1,15 @@
-import { ADD_COUNT,DEC_COUNT, ADD_TODO } from "./actionType.js";
+import { ADD_COUNT,DEC_COUNT, ADD_TODO_LODING, ADD_TODO_SUCCESS, ADD_TODO_ERROR } from "./actionType.js";
 
-export const reducerFn = (state, { type, payload }) => {
+const initialState = {
+  counter: 0,
+  todos: {
+    isLoading:false,
+    isError :false,
+    data :[]
+  }
+};
+
+export const reducerFn = (state=initialState, { type, payload }) => {
     switch (type) {
       case ADD_COUNT:
         return {
@@ -14,11 +23,44 @@ export const reducerFn = (state, { type, payload }) => {
           counter: state.counter - payload,
         };
   
-        case ADD_TODO:
-            return{
+        // case ADD_TODO:
+        //     return{
+        //         ...state,
+        //         todos:[...state.todos,{payload}]
+        //     }
+
+            case ADD_TODO_LODING:
+              return{
                 ...state,
-                todos:[...state.todos,{payload}]
-            }
+                todos:{
+                  ...state.todos,
+                  isLoading:true,
+
+                }
+              };
+
+              case ADD_TODO_SUCCESS:
+                return{
+                  ...state,
+                  todos:{
+                    ...state.todos,
+                    isLoading:false,
+                    data:[...state.todos.data]
+  
+                  }
+
+                }
+
+                case ADD_TODO_ERROR:
+                  return{
+                    ...state,
+                    todos:{
+                      ...state.todos,
+                      isLoading:false,
+                      isError:true,
+    
+                    }
+                  }
         default:
             return {...state};
     }

@@ -2,13 +2,10 @@ import {createStore} from "redux";
 import { reducerFn } from "./reducer.js";
 
 
-const initialState = {
-  counter: 0,
-  todos: [],
-};
 
 
-export const store = createStore(reducerFn, initialState);
+
+export const store = createStore(reducerFn);
 
 
 // store.dispatch(addCount(1));

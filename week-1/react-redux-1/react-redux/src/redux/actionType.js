@@ -1,6 +1,9 @@
 //action type;
 export const ADD_COUNT = "ADD_COUNT"
 export const DEC_COUNT = "DEC_COUNT"
+export const MULTI_COUNT = "MULTI_COUNT"
+export const DEV_COUNT = "DEV_COUNT"
+
 export const ADD_TODO  = "ADD_TODO"
 
 export const ADD_TODO_SUCCESS = "ADD_TODO_SUCCESS";

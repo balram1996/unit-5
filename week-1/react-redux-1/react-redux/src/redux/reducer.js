@@ -1,4 +1,4 @@
-import { ADD_COUNT,DEC_COUNT, ADD_TODO_LODING, ADD_TODO_SUCCESS, ADD_TODO_ERROR } from "./actionType.js";
+import { ADD_COUNT,DEC_COUNT, ADD_TODO_LODING, ADD_TODO_SUCCESS, ADD_TODO_ERROR, MULTI_COUNT,DEV_COUNT} from "./actionType.js";
 
 const initialState = {
   counter: 0,
@@ -22,7 +22,18 @@ export const reducerFn = (state=initialState, { type, payload }) => {
           ...state,
           counter: state.counter - payload,
         };
+
+        case MULTI_COUNT:
+          return{
+            ...state,
+            counter:state.counter * payload,
+          };
   
+          case DEV_COUNT:
+          return{
+            ...state,
+            counter:state.counter / payload,
+          };
         // case ADD_TODO:
         //     return{
         //         ...state,

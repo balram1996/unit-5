@@ -2,6 +2,8 @@
 import {
   ADD_COUNT,
   DEC_COUNT,
+  MULTI_COUNT,
+  DEV_COUNT,
   ADD_TODO,
   ADD_TODO_ERROR,
   ADD_TODO_SUCCESS,
@@ -14,6 +16,13 @@ export const addCount = (data) => {
 export const decCount = (data) => {
   return { type: DEC_COUNT, payload: data };
 };
+export const multiCount = (data) => {
+  return { type: MULTI_COUNT, payload: data };
+};
+export const devCount = (data) => {
+  return { type: DEV_COUNT, payload: data };
+};
+
 export const addTodo = (data) => {
   return { type: ADD_TODO, payload: data };
 };

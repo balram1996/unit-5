@@ -20,11 +20,13 @@ import {Github} from "./Components/Github"
 const reducer=(state=initialState, { type, payload })=>{
 
 switch (type){
-case ADD_COUNT:
+case "ADD_COUNT":
   return {
     ...state,
-    counter: state.counter + payload,
+    counter: state.counter * payload,
   };
+  default:
+    return {...state}
 }
 
 }
@@ -42,12 +44,13 @@ function App() {
   return <div className="App">
     {/* <Github/> */}
 
-    <h3>Counter:{state.count}
+    <h3>Counter:{state.counter}
     </h3>
     <button onClick={()=>{
-  dispatch({type: ADD_COUNT, payload: 1})
+  dispatch({type: "ADD_COUNT", payload: 2})
 
-    }}>add 1</button>
+    }}>add 2</button>
+     
   </div>;
 }
 

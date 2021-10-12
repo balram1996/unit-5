@@ -1,12 +1,13 @@
 import {useEffect,useState} from "react";
 
 function useQuery(url){
-   const [loading,setLoading] = useState(true);
+   const [loading,setLoading] = useState(false);
    const [error, setError] = useState(false);
    const [data,setData] = useState([]);
 
     useEffect(() => {
-        fetch("url")
+        setLoading(true)
+        fetch(url)
         .then((d)=>d.json())
         .then((x)=>{
             console.log(x.total_count)
@@ -14,8 +15,8 @@ function useQuery(url){
             setData(x.items);
         })
         .catch((e)=>{
-            setError(true);
-            return e.message;
+            setError(e);
+            setLoading(false)
         })
             
     
@@ -26,7 +27,7 @@ function useQuery(url){
 
 export const Github=()=>{
 
-    const query = useQuery("https://api.github.com/search/users?q=masai&per_page=3");
+    const {loading,error,data} = useQuery("https://api.github.com/search/users?q=masai&per_page=3");
 
     // useEffect(() => {
     //     fetch("")
@@ -39,7 +40,15 @@ export const Github=()=>{
     
     // }, [])
 
-    return (
-        <div>{query}</div>
-    )
+    return  loading ?(
+       "...loading"
+    ): error ? (
+        "something went wrong"
+    ):(
+        <div>
+            {data.map((e,i)=>(
+                <div key={i}>{e.login}</div>
+            ))}
+        </div>
+    );
 }

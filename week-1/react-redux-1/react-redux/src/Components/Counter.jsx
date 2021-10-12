@@ -1,5 +1,5 @@
 import { useSelector, useDispatch,shallowEqual } from "react-redux";
-import { addCount } from "../redux/actions";
+import { addCount,decCount } from "../redux/actions";
 
 export const Counter = () => {
   const counter = useSelector((state) => state.counter,shallowEqual);
@@ -13,9 +13,16 @@ export const Counter = () => {
           dispatch(addCount(1));
         }}
       >
-        Click Me
+        INCREMENT
       </button>
-      <br />
+    
+      <button
+        onClick={() => {
+          dispatch(decCount(1));
+        }}
+      >
+        DECREMENT
+      </button>
     </div>
   );
 };

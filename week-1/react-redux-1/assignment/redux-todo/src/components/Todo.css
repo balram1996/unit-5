@@ -1,0 +1,19 @@
+.main-div{
+    /* background-color: brown; */
+    width: 250px;
+    margin-left: 40%;
+  
+  }
+  .child-div figcaption{
+    /* background-color: coral; */
+    color: white;
+  }
+  body{
+      background-color: rgb(40, 2, 77)
+  }
+  .show-item{
+    background-color: tomato;
+  }
+  .each-item{
+    background-color: yellow;
+  }

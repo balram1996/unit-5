@@ -5,11 +5,8 @@ const reducer=(state=initialState,{type,payload})=>{
     switch(type){
         case "ADD_TODO":
             return{
-                ...state,
-                todo:{
-                    ...state.todo.payload,
-                    
-                }
+                // ...state,
+                todos:[...state.todo,{payload}]
             }
             default:
                 return{...state}
@@ -17,8 +14,11 @@ const reducer=(state=initialState,{type,payload})=>{
 
 }
 
-const handleChange=(e)=>{
-    return e.target.value
+const rend=(initialState)=>{
+    return(
+          <div>initialState
+          </div>
+    )
 }
 
 const initialState={
@@ -34,10 +34,11 @@ const Todo=()=>{
     return (
         <>
         <div>
-          <input type="text" onChange={handleChange}></input>
+          <input type="text" onChange={(e)=>setText(e.target.value)}></input>
           <button onClick={()=>{
-              dispatch({type:"ADD_TODO",payload:handleChange() })
+              dispatch({type:"ADD_TODO",payload:text})
           }}>Add Todo</button>
+          
         </div>
         </>
     );

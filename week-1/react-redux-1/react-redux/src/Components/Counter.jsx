@@ -1,5 +1,5 @@
 import { useSelector, useDispatch,shallowEqual } from "react-redux";
-import { addCount,decCount } from "../redux/actions";
+import { addCount,decCount } from "../redux/Todos/actions";
 
 export const Counter = () => {
   const counter = useSelector((state) => state.counter,shallowEqual);

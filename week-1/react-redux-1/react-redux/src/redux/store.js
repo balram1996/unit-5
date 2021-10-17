@@ -1,12 +1,14 @@
-import {createStore} from "redux";
-import { reducerFn } from "./reducer.js";
+import { createStore, combineReducers } from "redux";
+import { TodoreducerFn } from "./Todos/reducer.js";
 
+import { authReducer } from "./Auth/reducer.js";
 
+const rootReducer = combineReducers({
+  todos: TodoreducerFn,
+  auth: authReducer,
+});
 
-
-
-export const store = createStore(reducerFn);
-
+export const store = new createStore(rootReducer);
 
 // store.dispatch(addCount(1));
 
@@ -19,8 +21,6 @@ export const store = createStore(reducerFn);
 // store.dispatch(addTodo({id:1,status:false,title:"learn redux"}));
 
 // console.log(store.getState());
-
-
 
 // class Store {
 //   constructor(reducerFn, initialState) {

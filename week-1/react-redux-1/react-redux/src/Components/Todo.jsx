@@ -1,34 +1,50 @@
 import { useSelector, useDispatch, } from "react-redux";
 import {
-
-  addTodo,
+  //addTodo,
   addTodoError,
   addTodoLoading,
   addTodoSuccess,
-} from "../redux/actions";
-import { useState } from "react";
+  getTodoError,
+  getTodoLoading,
+} from "../redux/Todos/actions";
+import { useState ,useEffect} from "react";
 import { axios } from "axios";
 
 
 export const Todo = () => {
   const [text, setText] = useState("");
-  //const [todoList, setTodoList] = useState([]);
 
-  const { data, isLoading, isError } = useSelector((state) => state.todos);
-  const dispatch = useDispatch();
-  console.log(data);
+  const { data, isLoading, isError } = useSelector((state) => {
+   return state.todos.todos;
+  });
+  
+ const getTodos = async ()=>{
+    dispatch(getTodoLoading());
+    try{
+     const ret = await axios.get("http://localhost:3001/todos")
+     dispatch(addTodoSuccess(ret.data))
+    }catch(e){
+      dispatch(getTodoError(e.message))
+    }
+ }
+
+ useEffect(() => {
+  getTodos()
+ }, [])
 
   const handleAddTodo = async () => {
     
     dispatch(addTodoLoading());
     try {
-      const resp = await axios.post("http://localhost:3004/todos", {
+      const resp = await axios.post("http://localhost:3001/todos", {
         status: false,
         title: text,
       });
-      //dispatch(addTodo(text ))
-      console.log(resp)
+      console.log(resp.data)
+      //dispatch(addTodo(resp.data ))
+      
       dispatch(addTodoSuccess(resp.data));
+      getTodos()
     } catch (e) {
       dispatch(addTodoError(e.message));
     }
@@ -36,21 +52,18 @@ export const Todo = () => {
     // dispatch(addTodo(text))
   };
   
-
-  return isLoading ? (
-    "Loading..."
-  ) : isError ? (
-    "Error occured"
-  ) : (
+  const dispatch = useDispatch();
+  return (
     <div>
       <input
         onChange={(e) => setText(e.target.value)}
         type="text"
+        value={text}
         placeholder="enter todo"
       ></input>
 
       <button onClick={handleAddTodo}>Add Todo</button>
-      {data.map((e, i) => (
+       {data.map((e, i) =>(
         <p key={i}>{e.title}</p>
       ))}
     </div>

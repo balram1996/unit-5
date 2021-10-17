@@ -4,10 +4,15 @@ import {
   DEC_COUNT,
   MULTI_COUNT,
   DEV_COUNT,
-  ADD_TODO,
+  //ADD_TODO,
+
   ADD_TODO_ERROR,
   ADD_TODO_SUCCESS,
   ADD_TODO_LODING,
+
+  GET_TODO_ERROR,
+  GET_TODO_SUCCESS,
+  GET_TODO_LODING,
 } from "./actionType.js";
 
 export const addCount = (data) => {
@@ -23,11 +28,15 @@ export const devCount = (data) => {
   return { type: DEV_COUNT, payload: data };
 };
 
-export const addTodo = (data) => {
-  return { type: ADD_TODO, payload: data };
-};
+// export const addTodo = (data) => {
+//   return { 
+//     type: ADD_TODO, 
+//     payload: data,
+  
+//   };
+// };
 
-
+// post action for todo
 
 export const addTodoLoading = () => {
   return {
@@ -45,6 +54,29 @@ export const addTodoSuccess = (data) => {
 export const addTodoError = (error) => {
   return {
     type: ADD_TODO_ERROR,
+    payload: error,
+  };
+};
+
+
+// get action for todo
+
+export const getTodoLoading = () => {
+  return {
+    type: GET_TODO_LODING,
+  };
+};
+
+export const getTodoSuccess = (data) => {
+  return {
+    type: GET_TODO_SUCCESS,
+    payload: data,
+  };
+};
+
+export const getTodoError = (error) => {
+  return {
+    type: GET_TODO_ERROR,
     payload: error,
   };
 };

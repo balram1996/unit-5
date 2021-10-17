@@ -5,7 +5,7 @@ const reducer=(state=initialState,{type,payload})=>{
     switch(type){
         case "ADD_TODO":
             return{
-                // ...state,
+                 ...state,
                 todos:[...state.todo,{payload}]
             }
             default:
@@ -34,7 +34,7 @@ const Todo=()=>{
     return (
         <>
         <div>
-          <input type="text" onChange={(e)=>setText(e.target.value)}></input>
+          <input type="text" value={text} onChange={(e)=>setText(e.target.value)}></input>
           <button onClick={()=>{
               dispatch({type:"ADD_TODO",payload:text})
           }}>Add Todo</button>

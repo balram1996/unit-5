@@ -12,7 +12,7 @@ import Signup from "./Signup"
 export const Navbar = () => {
 
 const signupForm=()=>{
-      <Signup/>
+    return <Signup/>
   }  
   return (
     <>

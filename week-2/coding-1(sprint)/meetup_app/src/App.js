@@ -1,11 +1,14 @@
+import { Categories } from "./Components/Categories";
 import Navbar from "./Components/Navbar";
-import Signup from "./Components/Signup"
+import Signup from "./Components/Signup";
+
 function App() {
   return (
-    <div className="App">
+    <>
       {/* <Navbar/> */}
       <Signup/>
-    </div>
+      {/* <Categories/> */}
+    </>
   );
 }
 

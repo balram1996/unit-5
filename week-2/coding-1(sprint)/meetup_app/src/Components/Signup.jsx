@@ -2,22 +2,33 @@ import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import axios from "axios";
+import "./style.css";
 
 export const Signup = () => {
   const [name, setName] = useState("");
   const [place, setPlace] = useState("");
   const [age, setAge] = useState([]);
   const [topic, setTopic] = useState("");
+  const [signup,setSignup] =useState(null);
 
   const handleSignup = async () => {
-      const user = await axios.post("")
+      const user = await axios.post("http://localhost:3002/users",{
+          Name:name,
+          Age:age,
+          Location:place,
+          Topic:topic
+      })
+      .then((res)=>{
+        setSignup(res.user)
+      })
   };
   return (
     <>
-      <div>
-          <h1>SignUp Form</h1>
-        <form onSubmit={handleSignup}>
+      <div className="container">
+          <h2>SignUp Form</h2>
+        <form onSubmit={handleSignup} value={signup}>
           <label>Name</label>
+          <br/>
           <input
             type="text"
             placeholder="Enter name"
@@ -26,6 +37,7 @@ export const Signup = () => {
           ></input>
           <br />
           <label>Age</label>
+          <br/>
           <input
             type="number"
             placeholder="enter your age"
@@ -34,6 +46,7 @@ export const Signup = () => {
           ></input>
           <br />
           <label>Location</label>
+          <br/>
           <input
             type="text"
             placeholder="enter your City"
@@ -42,6 +55,7 @@ export const Signup = () => {
           ></input>
           <br />
           <label>Interested in?</label>
+          <br/>
           <input
             type="text"
             placeholder="Topic"

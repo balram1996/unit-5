@@ -5,9 +5,11 @@ import Signup from "./Components/Signup";
 function App() {
   return (
     <>
-      {/* <Navbar/> */}
+   
+     
+      <Navbar/>
       <Signup/>
-      {/* <Categories/> */}
+      <Categories/>
     </>
   );
 }

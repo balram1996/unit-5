@@ -5,8 +5,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-
-
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -15,7 +13,7 @@ export const Categories = () => {
 
  return (
         <>
-          <Navbar/>
+          {/* <Navbar/> */}
           <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
         <Grid item xs={4} md={4}>

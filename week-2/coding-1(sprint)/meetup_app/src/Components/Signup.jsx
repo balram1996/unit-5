@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import axios from "axios";
 import "./style.css";
+import { Categories } from "./Categories";
 
 export const Signup = () => {
   const [name, setName] = useState("");
@@ -21,6 +22,7 @@ export const Signup = () => {
       .then((res)=>{
         setSignup(res.user)
       })
+      
   };
   return (
     <>

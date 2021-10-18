@@ -6,10 +6,17 @@ import  IconButton  from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import  Typography  from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Signup from "./Signup"
+// import {Router,Switch,Link} from "react-router-dom"
 
 export const Navbar = () => {
+
+const signupForm=()=>{
+      <Signup/>
+  }  
   return (
     <>
+    
       <Box>
         <AppBar position="static">
           <Toolbar>
@@ -27,10 +34,14 @@ export const Navbar = () => {
             </Typography>
             <Button color="inherit">Create Meet</Button>
             <Button color="inherit">Login</Button>
-            <Button color="inherit">Signup</Button>
+            
+            <Button color="inherit" onClick={signupForm}>Signup</Button>
+           
+            
           </Toolbar>
         </AppBar>
       </Box>
+      
     </>
   );
 };

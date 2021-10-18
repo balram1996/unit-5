@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import axios from "axios";
 
 export const Signup = () => {
   const [name, setName] = useState("");
@@ -8,7 +9,9 @@ export const Signup = () => {
   const [age, setAge] = useState([]);
   const [topic, setTopic] = useState("");
 
-  const handleSignup = () => {};
+  const handleSignup = async () => {
+      const user = await axios.post("")
+  };
   return (
     <>
       <div>

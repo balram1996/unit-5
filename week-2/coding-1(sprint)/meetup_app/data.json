@@ -1,0 +1,42 @@
+[
+    {
+     "date":"20oct",
+     "time":"10am",
+     "place":"bhopal",
+     "description":"this is the Cooking Event",
+     "rating":4.2,
+     "users": ["rakesh","sudama","prasad"]
+    },
+    {
+        "date":"21oct",
+        "time":"12pm",
+        "place":"Raisen",
+        "description":"this is the Photography Event",
+        "rating":4.5,
+        "users": ["Bhaskar","shivaji","baijnath"]
+       },
+       {
+        "date":"22oct",
+        "time":"9am",
+        "place":"rajgarh",
+        "description":"this is the Stunt Event",
+        "rating":4.2,
+        "users": ["balram","Narvada","prasad"]
+       },
+       {
+        "date":"23oct",
+        "time":"5pm",
+        "place":"pune",
+        "description":"this is the Sports Event",
+        "rating":4.8,
+        "users": ["anurag","rajesh","aditya"]
+       },
+       {
+        "date":"24oct",
+        "time":"10am",
+        "place":"bangaluru",
+        "description":"this is the Enterprenure Event",
+        "rating":4.2,
+        "users": ["subhash","rakesh","vishwesh"]
+       }
+]

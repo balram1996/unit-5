@@ -1,13 +1,13 @@
 import {
   ADD_COUNT,
   DEC_COUNT,
-  ADD_TODO_LODING,
+  ADD_TODO_LOADING,
   ADD_TODO_SUCCESS,
   ADD_TODO_ERROR,
   MULTI_COUNT,
   DEV_COUNT,
   ADD_TODO,
-  GET_TODO_LODING,
+  GET_TODO_LOADING,
   GET_TODO_ERROR,
   GET_TODO_SUCCESS,
 } from "./actionType.js";
@@ -53,7 +53,7 @@ export const TodoreducerFn = (state = initialState, { type, payload }) => {
 
     //actions for todo
 
-    case ADD_TODO_LODING:
+    case ADD_TODO_LOADING:
       return {
         ...state,
         todos: {
@@ -81,7 +81,7 @@ export const TodoreducerFn = (state = initialState, { type, payload }) => {
         },
       };
 
-    case GET_TODO_LODING:
+    case GET_TODO_LOADING:
       return {
         ...state,
         todos: {

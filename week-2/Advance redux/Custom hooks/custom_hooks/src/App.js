@@ -42,7 +42,7 @@ function App() {
   
   const [state, dispatch] = useReducer(reducer, initialState)
   return <div className="App">
-    {/* <Github/> */}
+    <Github/>
 
     <h3>Counter:{state.counter}
     </h3>

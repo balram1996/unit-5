@@ -1,4 +1,4 @@
-import { useSelector, useDispatch, } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   //addTodo,
   addTodoError,
@@ -18,7 +18,7 @@ export const Todo = () => {
    return state.todos.todos;
   });
   
- const getTodos = async ()=>{
+const getTodos = async ()=>{
     dispatch(getTodoLoading());
     try{
      const ret = await axios.get("http://localhost:3001/todos")
@@ -53,7 +53,7 @@ export const Todo = () => {
   };
   
   const dispatch = useDispatch();
-  return (
+  return isLoading ? ("LOADING....." ) : isError ? ("ERROR" ): (
     <div>
       <input
         onChange={(e) => setText(e.target.value)}

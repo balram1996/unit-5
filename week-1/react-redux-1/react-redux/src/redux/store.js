@@ -1,14 +1,26 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers ,applyMiddleware,compose} from "redux";
 import { TodoreducerFn } from "./Todos/reducer.js";
-
 import { authReducer } from "./Auth/reducer.js";
+
+const middleware1 =(store)=>(next)=>(action)=>{
+  console.log("mw1",action)
+  return next(action);
+}
 
 const rootReducer = combineReducers({
   todos: TodoreducerFn,
   auth: authReducer,
 });
 
-export const store = new createStore(rootReducer);
+export const store = new createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(middleware1),
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__()
+    
+  )
+  );
 
 // store.dispatch(addCount(1));
 

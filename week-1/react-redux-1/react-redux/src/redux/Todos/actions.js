@@ -8,11 +8,11 @@ import {
 
   ADD_TODO_ERROR,
   ADD_TODO_SUCCESS,
-  ADD_TODO_LODING,
+  ADD_TODO_LOADING,
 
   GET_TODO_ERROR,
   GET_TODO_SUCCESS,
-  GET_TODO_LODING,
+  GET_TODO_LOADING,
 } from "./actionType.js";
 
 export const addCount = (data) => {
@@ -40,7 +40,7 @@ export const devCount = (data) => {
 
 export const addTodoLoading = () => {
   return {
-    type: ADD_TODO_LODING,
+    type: ADD_TODO_LOADING,
   };
 };
 
@@ -63,7 +63,7 @@ export const addTodoError = (error) => {
 
 export const getTodoLoading = () => {
   return {
-    type: GET_TODO_LODING,
+    type: GET_TODO_LOADING,
   };
 };
 

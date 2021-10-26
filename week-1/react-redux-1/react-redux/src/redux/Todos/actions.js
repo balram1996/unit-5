@@ -14,6 +14,8 @@ import {
   GET_TODO_SUCCESS,
   GET_TODO_LOADING,
 } from "./actionType.js";
+import { axios } from "axios";
+
 
 export const addCount = (data) => {
   return { type: ADD_COUNT, payload: data };
@@ -80,3 +82,19 @@ export const getTodoError = (error) => {
     payload: error,
   };
 };
+
+/*This is the new way of writing the actions because in the main component we have to call the same
+thing again and again these three action loading, error, success. 
+
+const getTodos =()=> async (dispatch)=>{
+
+  dispatch(getTodoLoading());
+  try{
+   const ret = await axios.get("http://localhost:3001/todos")
+   dispatch(addTodoSuccess(ret.data))
+  }catch(e){
+    dispatch(getTodoError(e.message))
+  }
+}
+
+*/

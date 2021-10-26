@@ -7,6 +7,17 @@ const middleware1 =(store)=>(next)=>(action)=>{
   return next(action);
 }
 
+/* this is the way we can call the dispatch after putting the three in the action 
+const middleware1 =(store)=>(next)=>(action)=>{
+  console.log("mw1",action)
+  if(typeof of action==="function"){
+    return action(store.dispatch);
+  }
+  return next(action);
+}
+
+*/
+
 const rootReducer = combineReducers({
   todos: TodoreducerFn,
   auth: authReducer,

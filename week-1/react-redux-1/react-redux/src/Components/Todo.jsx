@@ -14,9 +14,10 @@ import { axios } from "axios";
 export const Todo = () => {
   const [text, setText] = useState("");
 
-  const { data, isLoading, isError } = useSelector((state) => {
-   return state.todos.todos;
-  });
+  const { data, isLoading, isError } = useSelector(
+    (state) => state.todos.todos
+    
+  )
   
 const getTodos = async ()=>{
     dispatch(getTodoLoading());

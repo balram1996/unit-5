@@ -2,7 +2,7 @@ require("dotenv").config();
 const nodemailer = require("nodemailer")
 //sending email logic--
 module.exports = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
+    host: process.env.NODE_ENV==="development" ? "smtp.mailtrap.io" : "",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {

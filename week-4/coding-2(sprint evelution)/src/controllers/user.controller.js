@@ -9,8 +9,8 @@ const bcrypt = require("bcrypt")
 // const filePath = req.files.map((file)=>file.path);
 
 //register user
-router.post("/register" , async function(req,res){
-   
+router.post("/register" ,uploadFile.any("userImage") , async function(req,res){
+    const filePath = req.files.map((file)=>file.path);
     try{
 
         // generate password
@@ -21,7 +21,7 @@ router.post("/register" , async function(req,res){
             name:req.body.name,
             email:req.body.email,
             password:hashPassword,
-            profile_photo_url:req.body.profile_photo_url
+            profile_photo_url:req.path.filePath
         });
         return res.status(200).send(user)
     } catch(err){

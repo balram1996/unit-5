@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../middlewares/fileupload");
 const product = require("../models/product.model");
+
 //productImage- its a key which we have to define
 router.post(
   "/single",

@@ -2,9 +2,12 @@ const mongoose = require("mongoose");
 const connect = require("./configs/db");
 const express = require("express");
 const UserContrller = require("./controllers/user.controller");
+const LectureController = require("./controllers/lecture.controller")
 const app = express();
 
 app.use("/user" , UserContrller);
+
+app.use("/lecture",LectureController)
 
 app.listen(2345, async function(){
     await connect()
